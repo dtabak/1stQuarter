@@ -1,0 +1,46 @@
+Assignment(1)
+1. Training vs Test Data
+
+a) In general, for any modeling data, why are accuracy measures better on training data than on test data?
+— Because the model is based on the training dataset and algorithm. It has all of the training data, it doesn’t need to make new predictions. On the other hand, it has to make predictions when being applied to test data. That’s why accuracy measures are better on training data than on test data. It can be useful to compare these to identify overfitting. The results from the test data represent the performance of the model on “general data”.  
+
+b) Given modeling data, how do you determine which of this data will become training data and which data will become test data? 
+- You could either apply fast partitioning or exact partitioning to split data into test and training datasets. Fast partitioning is used on large datasets while exact partitioning is used on smaller datasets. Partition of data between test and training must be random in both methods. First, you create uniform distribution of random numbers that are created for each row in the model data. Then you create a flag to partition cases at the value of specified test fraction. In exact partitioning, you need to find the correct quantile and determine threshold where quantile of random numbers is at test fraction before applying the flag for both testing and training data selection. 
+
+c)You have two datasets. You used one to train the model and the other to test the model. You still have the model but you lost the accuracy measures and the algorithm parameters. You forgot which one of the two datasets you used for training. Without re-training, how can you determine which of these datasets is the training data?
+- Training data must be larger then the test data. So the larger dataset would be training data and the smaller dataset would be test dataset. Also, dataset gives you better accuracy would be your training data. 
+
+2. Confusion Matrix 
+#             Actual
+# Predicted   Healthy Ill
+# Healthy      85      3   
+# Ill           5      7  
+ 
+# Sensitivity is also know as true positive rate(TPR). 
+# Sensitivity = TP/(TP+FN) 
+# Sensitivity: 85/(85+5) = 94%
+
+# Specificity is also known as true negative rate. 
+# Specificity = TN/(TN+FP)
+# Specificity: 7/(7+3) = 70%
+
+# Accuracy defined as fraction of predictions that are correct
+# Accuracy:  (85+7)/(85+5+3+7) = 92% 
+
+# Precision = TP/(TP+FP) 
+# Precision:  85/(85+3) = 97%
+
+# Recall is also know as sensitivity; therefore it equals to 94%.
+
+3. The probability threshold for a classification varies in an ROC chart from 0 to 1.
+a) Thresholds always start off high on the left and go down to zero on the right of the ROC curve. The threshold is 0 when FPR and TPR equal to 1. 
+b) The threshold is 1 when FPR and TPR equal to 0. 
+c) You can not know what point of the graph corresponds to a threshold of 0.5. ROC curves will always increase but not linearly, or not by any known pattern.
+
+4. 
+a) Confusion Matrix 
+  TP = 400	FP = 200
+  FN = 100	TN = 300
+
+b) There is no way to figure out the probability threshold. You can have the exact same ROC curve and thresholds can be totally different. 
+
